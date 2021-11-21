@@ -17,8 +17,8 @@ Assumptions and Other Relevant Information:
     7) Outputs are saved in the same directary of this .py file. 
     8) When saving the outputs in point 7), finding the path of the parent directory is expected to work in both Windows and Linux
     9) simulations are used to plot efficient frontiers, and the number of simulation runs is arbitrarily defined as 30000
-    10) output of returns and weights for optimization in the attachment
-    11) efficient frontier graph is provided in the attachment
+    10) output of returns and weights for optimization can be found in the same directory in Github
+    11) efficient frontier graph is provided can be found in the same directory in Github
     12) execution of this .py file has been tested successfully in both Windows 10 and Ubuntu 20.04.2.0 (with Virtual Box)
 """
 #to do: 
