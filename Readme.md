@@ -13,7 +13,7 @@ Description:
    4) variance-covariance matrix is used in the calculation
    5) when attempting to draw efficient frontier, 30000 simulation runs have been executed. 
    5) interim and final outputs were generated, including:
-       i. output of hourly closing prices, and log returns for the aformentioned period as a CSV file 
+       i. output of hourly closing prices, and log returns for the aformentioned period as 2 CSV files 
        ii. output of the weights to be used to achieve an optimum portfolio as a CSV vile
        iii. output of the efficient frontier as a png file.
 
