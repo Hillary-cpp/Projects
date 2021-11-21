@@ -6,9 +6,9 @@ Created on Fri Nov 19 15:27:12 2021
 """
 """
 Assumptions and Other Relevant Information:
-    1) the timezone for the trades is assumed to be GMT+0
-    2) each portfolio's weight is bounded by 0 and 1
-    3) constraint for optimiation - weights of all market sum up to one
+    1) execution of this .py file has been tested successfully in both Windows 10 and Ubuntu 20.04.2.0 (with Virtual Box)
+    2) the timezone for the trades is assumed to be GMT+0
+    3) each portfolio's weight is bounded by 0 and 1 and the constraint for optimiation is that weights of all market sum up to one
     4) 1-year Singapore government bond yield is used as the proxy for risk free rate
     5) all returns are expressed in log terms
     6) during the looping over the days between the user-defined start time and end time,
@@ -19,7 +19,8 @@ Assumptions and Other Relevant Information:
     9) simulations are used to plot efficient frontiers, and the number of simulation runs is arbitrarily defined as 30000
     10) output of returns and weights for optimization can be found in the same directory in Github
     11) efficient frontier graph is provided can be found in the same directory in Github
-    12) execution of this .py file has been tested successfully in both Windows 10 and Ubuntu 20.04.2.0 (with Virtual Box)
+  
+    
 """
 #to do: 
 
