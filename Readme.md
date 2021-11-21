@@ -18,7 +18,7 @@ Description:
        iii. output of the efficient frontier as a png file.
 
 3. Assumptions and Other Relevant Information:
-    1) both the execution of this .py file and its output has been tested successfully in both Windows 10 Home edition (Python version: 3.8) and Ubuntu 20.04.2.0 (with Virtual Box) (Python version: 3.8.10)
+    1) both the execution of the.py file (Portfolio_Optimization_v20) and its output has been tested successfully in both Windows 10 Home edition (Python version: 3.8) and Ubuntu 20.04.2.0 (with Virtual Box) (Python version: 3.8.10)
     2) the timezone for the trades is assumed to be GMT+0
     3) each portfolio's weight is bounded by 0 and 1 and the constraint for optimiation is that weights of all market sum up to one
     4) 1-year Singapore government bond yield is used as the proxy for risk free rate
