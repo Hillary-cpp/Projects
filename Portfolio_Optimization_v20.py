@@ -22,9 +22,6 @@ Assumptions and Other Relevant Information:
   
     
 """
-#to do: 
-
-#4) Readme
 
 
 import time
