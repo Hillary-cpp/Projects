@@ -14,8 +14,7 @@ Assumptions:
 """
 
 #to do- 
-#1) risk free rate => convert to log return
- 
+#1) 
 #3) #output weights_for_optimiation in csv file as well
 #use relative path
 #4) Readme
