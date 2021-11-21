@@ -10,7 +10,9 @@ Assumptions:
     2) each portfolio weight is bounded by 0 and 1
     3) constraint for optimiation - weights of all market sums up to one!
     4) 1-year Singapore government bond yield is used as the proxy for risk free rate
-    5) all returns are calculated and used in log terms
+    5) all returns are calculated and expressed in log terms
+ 6) in the , the beginning of each hourly interval that's being referenced to represent each hourly interval from 2021-10-01 0:0:0 to 2021-10-31 2230:0
+     
 """
 
 #to do- 
@@ -19,7 +21,7 @@ Assumptions:
 #use relative path
 #4) Readme
 #5) efficient frontier:  #save the plot to a  png file in the relative path
-#6) HTTP error handling
+#6) 
 #7) post to Github 
 #8) try running on Ubuntu
 
@@ -288,7 +290,7 @@ def display_efficient_frontier_with_random(lst_weights_for_optimiation):
     plt.ylabel('annualised returns')
     plt.legend(labelspacing=0.8)
     #save the plot to a  png file in the relative path
-    #plt.savefig('books_read.png')
+    plt.savefig(r"C:\Users\rmili\Documents\CV\Interviews\weights-optimization.png")
 
 # intialize weights for weight_ADA , weight_BTC , weight_ETH in the same order
 initial_values = [0.1,0.3,0.6]

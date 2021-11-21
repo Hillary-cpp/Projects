@@ -5,14 +5,18 @@ Created on Fri Nov 19 15:27:12 2021
 @author: rmili
 """
 """
-Assumptions:
-    1) the timezone for the trades is assumed to be in GMT
-    2) each portfolio weight is bounded by 0 and 1
-    3) constraint for optimiation - weights of all market sums up to one!
+Assumptions and Basis for Code Development:
+    1) the timezone for the trades is assumed to be GMT+0
+    2) each portfolio's weight is bounded by 0 and 1
+    3) constraint for optimiation - weights of all market sums up to one
     4) 1-year Singapore government bond yield is used as the proxy for risk free rate
     5) all returns are calculated and expressed in log terms
  6) in the , the beginning of each hourly interval that's being referenced to represent each hourly interval from 2021-10-01 0:0:0 to 2021-10-31 2230:0
-     
+    7) Outputs are saved in the same directary of this .py file. 
+    8) When saving the outputs in point 7), finding the path of the parent directory is expected to work in both Windoes and Linux
+    9) simulations are used to plot efficient frontiers, and the number of simulation runs is arbitrarily defined as 30000
+    10) sample output of pd and weights
+    11) sample efficient frontier graph
 """
 
 #to do- 
@@ -37,6 +41,8 @@ import numpy as np
 from scipy.optimize import minimize 
 import math
 import matplotlib.pyplot as plt
+import ntpath
+import os
 
 #1) connection and authentication
 
@@ -48,7 +54,7 @@ lst_market = ['BTC-PERP','ETH-PERP','ADA-PERP']
 
 
 
-end_time = '1633388934'#Epoch time for 2021-10-31 23:00:00.000000' 
+end_time = '1635721200'#Epoch time for 2021-10-31 23:00:00.000000' 
 start_time = '1633046400' # Epoch time for 2021-10-01 00:00:00.000000' ,
 #format of the timestamp , to be used to convert the timestamp to epoch time
 p = "%Y-%m-%d %H:%M:%S.%f"   
@@ -57,12 +63,13 @@ p = "%Y-%m-%d %H:%M:%S.%f"
 #taking logarithm of the arithmatic return
 risk_free_rate = 0.00425
 risk_free_rate = math.log(risk_free_rate +1)
+simulation_runs = 30000
 #the following api key and api secret both belongs to Hillary's account 
 api_key = 'Q_3Y2JNEb1JJjLz5cCGe8gKon1kl4XGp4qrMVNKC'
 api_secret = 'kY_qDn4dXGUt96iJPCmIcsKRZ6tCKq7RshslrocV'
 
 ts = int(time.time() * 1000)
-simulation_runs = 30000
+
 request = Request('GET', api_endpoint)
 prepared = request.prepare()
 signature_payload = f'{ts}{prepared.method}{prepared.path_url}'.encode()
@@ -311,10 +318,17 @@ values = weights_for_optimiation.values()
 lst_weights_for_optimiation = list(values)
 
 display_efficient_frontier_with_random(lst_weights_for_optimiation)
-#output the compiled price data for each of the 3 markets into  CSV files    
-pd_all_markets.to_csv(r"C:\Users\rmili\Documents\CV\Interviews\all-prices.csv")
-pd_all_markets_returns.to_csv(r"C:\Users\rmili\Documents\CV\Interviews\all-returns.csv")
-pd_weights_for_optimiation.to_csv(r"C:\Users\rmili\Documents\CV\Interviews\weights-optimization.csv")
+
+#get the path of the parent directory, expected to work with both Windoes and Linux
+dirname = ntpath.dirname(__file__)
+filename_prices = os.path.join(dirname, 'all-prices-Oct21.csv')
+filename_returns = os.path.join(dirname, 'all-returns-Oct21.csv')
+filename_weights_for_optimization = os.path.join(dirname, 'weights-optimization-Oct21.csv')
+
+#output the compiled price data, calculated returns, as well as weight for optimization for each of the 3 markets into  CSV files    
+pd_all_markets.to_csv(filename_prices)
+pd_all_markets_returns.to_csv(filename_returns)
+pd_weights_for_optimiation.to_csv(filename_weights_for_optimization)
 
 #output weights_for_optimiation in csv file as well
 #use relative path
